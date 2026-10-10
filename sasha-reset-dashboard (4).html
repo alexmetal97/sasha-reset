@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#10111b" />
+<title>Саша / день в движении</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:#10111b;--panel:#191c2a;--panel2:#203b36;--ink:#f2f3f8;--muted:#b0b5c7;--line:#3b4055;--acid:#3dbb9a;--blue:#7778e8;--pink:#c7ccd8;--radius:22px;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.45}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}.mono{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--muted)}
+header{padding:24px 0 12px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.04em}.brand-mark{width:28px;height:28px;background:linear-gradient(135deg,#2c9b7e,#7778e8);border:1px solid #9daab5;border-radius:8px 8px 8px 2px;display:grid;place-items:center;color:#f4f6f8;font-size:16px}.header-right{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:12px}.hero{padding:52px 0 36px;display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:end}.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}.dot{width:8px;height:8px;border-radius:50%;background:var(--acid);box-shadow:0 0 18px #3dbb9a66}.hero h1{font-size:clamp(56px,9vw,112px);line-height:.88;letter-spacing:-.085em;margin:0;max-width:760px;font-weight:800}.hero h1 em{font-style:normal;color:var(--acid)}.hero-copy{max-width:350px;color:var(--muted);font-size:15px;margin:22px 0 0}.hero-aside{background:linear-gradient(135deg,#164d43 0%,#34366f 100%);border:1px solid #667782;color:#eef2f5;border-radius:var(--radius);padding:22px;transform:rotate(1.5deg);min-height:170px;display:flex;flex-direction:column;justify-content:space-between}.hero-aside .mono{color:#b7c5c9}.hero-aside strong{font-size:clamp(25px,3vw,38px);letter-spacing:-.06em;line-height:1.03}.hero-aside small{font-size:12px;font-weight:700;opacity:.7}
+nav{display:flex;gap:8px;overflow:auto;padding:8px 0 28px;scrollbar-width:none}nav a{white-space:nowrap;padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}nav a:hover{border-color:var(--acid);color:var(--acid)}
+.progress{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;margin-bottom:24px}.progress-label{display:flex;justify-content:space-between;gap:12px;font-size:13px;margin-bottom:10px}.track{height:7px;border-radius:99px;background:#34384a;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#3dbb9a,#7778e8,#c7ccd8);transition:width .25s ease}.progress-count{font-size:25px;font-weight:800;letter-spacing:-.06em}.progress-count span{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:40px 0 14px}.section-head h2{font-size:clamp(25px,4vw,42px);letter-spacing:-.065em;line-height:1;margin:0}.section-head p{max-width:380px;margin:0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}.card.span-7{grid-column:span 7}.card.span-5{grid-column:span 5}.card.span-6{grid-column:span 6}.card.span-4{grid-column:span 4}.card.full{grid-column:1/-1}.card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:18px}.card-title{font-size:20px;letter-spacing:-.05em;font-weight:800;margin:0}.card-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:7px;padding:5px 7px;white-space:nowrap}.icon{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:var(--panel2);color:var(--acid);font-size:18px;margin-bottom:12px}.task-list{display:grid;gap:2px}.task{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid #34394a;cursor:pointer;font-size:13px;color:#e1e7dc}.task:first-child{border-top:0}.task input{appearance:none;flex:0 0 18px;width:18px;height:18px;border:1.5px solid #737b8e;border-radius:5px;margin:1px 0 0;display:grid;place-items:center;background:transparent}.task input:checked{background:linear-gradient(135deg,#2c9b7e,#7778e8);border-color:#8cabb0}.task input:checked:after{content:'✓';color:#111;font-size:13px;font-weight:900}.task.done span{text-decoration:line-through;color:#879183}.task small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.accent{background:linear-gradient(145deg,#292c4a,#202638);color:#f0f1fb;border-color:#555b89}.accent .mono,.accent .card-tag{color:#c0cbe0;border-color:#596989}.accent .task{color:#e3e9f4;border-color:#414d65}.accent .task input{border-color:#8192b5}.accent .task input:checked{background:linear-gradient(135deg,#2c9b7e,#7778e8);border-color:#aeb8c2}.accent .icon{background:#383b63;color:#dfe1ff}.green{background:linear-gradient(145deg,#163e36,#1b343b);color:#e5f7f1;border-color:#347765}.green .mono,.green .card-tag{color:#b8e8d9;border-color:#438b78}.green .task{color:#e0eee8;border-color:#31594e}.green .task input{border-color:#7da998}.green .icon{background:#2b5147;color:#c4dfd3}.subtext{font-size:12px;color:var(--muted);margin:0 0 12px}.green .subtext,.accent .subtext{color:inherit;opacity:.75}.bottom-note{margin:30px 0 18px;border-top:1px solid var(--line);padding:18px 0 30px;display:flex;justify-content:space-between;gap:16px;align-items:center;color:var(--muted);font-size:12px}.bottom-note strong{color:var(--ink)}.reset{background:none;border:1px solid var(--line);color:var(--muted);padding:9px 12px;border-radius:999px;font-size:11px}.reset:hover{border-color:#c7ccd8;color:#f2f3f8;background:#2a2d40}.tiny{font-size:11px;color:var(--muted)}
+@media(max-width:760px){.wrap{width:min(100% - 22px,620px)}header{padding-top:16px}.hero{grid-template-columns:1fr;padding:36px 0 24px;gap:20px}.hero h1{font-size:clamp(56px,17vw,90px)}.hero-aside{min-height:130px;transform:none}.grid{gap:10px}.card.span-7,.card.span-5,.card.span-6,.card.span-4{grid-column:1/-1}.card{padding:17px}.section-head{align-items:flex-start;flex-direction:column;margin-top:32px}.section-head p{max-width:none}.progress{padding:13px}.bottom-note{align-items:flex-start;flex-direction:column}.pill{display:none}}
+@media(max-width:520px){
+  :root{--radius:17px}
+  html{scroll-padding-top:12px}
+  body{font-size:15px;-webkit-text-size-adjust:100%;padding-bottom:env(safe-area-inset-bottom)}
+  .wrap{width:calc(100% - 20px);max-width:100%}
+  header{padding:13px 0 5px;gap:8px;align-items:center}
+  .brand{font-size:13px;gap:8px;letter-spacing:-.03em}
+  .brand-mark{width:30px;height:30px;flex:0 0 30px}
+  .header-right .mono{font-size:9px;letter-spacing:.07em;text-align:right}
+  .hero{padding:28px 0 19px;gap:15px;grid-template-columns:1fr}
+  .eyebrow{margin-bottom:13px;gap:8px}
+  .eyebrow .mono{font-size:9px;letter-spacing:.08em}
+  .hero h1{font-size:clamp(43px,13.2vw,68px);line-height:.93;letter-spacing:-.075em;overflow-wrap:anywhere}
+  .hero-copy{font-size:13px;line-height:1.55;margin:15px 0 0;max-width:100%}
+  .hero-aside{min-height:0;padding:16px 17px;gap:12px;border-radius:17px}
+  .hero-aside strong{font-size:27px;line-height:1.02}
+  .hero-aside small{font-size:10px;line-height:1.5}
+  nav{gap:7px;padding:7px 0 17px;margin-right:-1px}
+  nav a{padding:9px 11px;font-size:11px;flex:0 0 auto}
+  .progress{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:13px;margin-bottom:20px;border-radius:15px}
+  .progress-label{font-size:11px;align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:9px}
+  .progress-count{font-size:23px;align-self:center;white-space:nowrap}
+  .progress-count span{font-size:11px}
+  .track{height:6px}
+  .section-head{margin:27px 0 12px;gap:8px}
+  .section-head h2{font-size:clamp(25px,8vw,34px);line-height:1.02}
+  .section-head p{font-size:12px;line-height:1.5}
+  .grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .card,.card.span-7,.card.span-5,.card.span-6,.card.span-4,.card.full{grid-column:1/-1;min-width:0;padding:15px;border-radius:17px}
+  .card-head{gap:8px;margin-bottom:13px}
+  .card-title{font-size:18px;line-height:1.15}
+  .card-tag{font-size:9px;padding:5px 6px;white-space:normal;text-align:center;max-width:46%}
+  .icon{width:32px;height:32px;margin-bottom:10px;border-radius:10px}
+  .subtext{font-size:12px;line-height:1.5}
+  .task-list{gap:0}
+  .task{gap:11px;padding:11px 0;font-size:13px;line-height:1.45;min-height:42px}
+  .task input{width:21px;height:21px;flex-basis:21px;border-radius:6px;margin-top:0;cursor:pointer}
+  .task input:checked:after{font-size:14px}
+  .task span{min-width:0;overflow-wrap:anywhere}
+  .task small{font-size:11px;line-height:1.45}
+  .bottom-note{margin:22px 0 12px;padding:15px 0 calc(18px + env(safe-area-inset-bottom));gap:13px;font-size:12px}
+  .bottom-note>div:last-child{width:100%;justify-content:space-between;flex-wrap:wrap}
+  .reset{padding:10px 13px;min-height:40px}
+  button,a,input{touch-action:manipulation}
+  .grid .grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .grid .grid>div[class*="span-"]{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media print{body{background:white;color:#111}.wrap{width:100%}.card,.progress{break-inside:avoid;background:white;color:#111;border:1px solid #bbb}.hero-aside{background:#eee;color:#111}.task{color:#111}.mono,.subtext,.tiny{color:#555}.hero h1 em{color:#333}nav,.reset{display:none}.grid{gap:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><span class="brand-mark">↗</span><span>SASHA / RESET</span></div>
+  <div class="header-right"><span class="pill">PERSONAL DASHBOARD</span><span class="mono">01 — DAY MODE</span></div>
+</header>
+<section class="hero" id="top">
+  <div>
+    <div class="eyebrow"><span class="dot"></span><span class="mono">НЕ ИДЕАЛЬНО. ЗАТО ДВИЖЕНИЕ.</span></div>
+    <h1>СОБРАТЬ<br>СЕБЯ <em>ПО ЧАСТЯМ.</em></h1>
+    <p class="hero-copy">День, в котором есть место дому, деньгам, телу и будущему. Без расписания по минутам и без требования стать новой версией себя за один заход.</p>
+  </div>
+  <aside class="hero-aside"><span class="mono">TODAY'S RULE</span><strong>Маленький<br>шаг — тоже<br>шаг.</strong><small>СНАЧАЛА ВАЖНОЕ. ОСТАЛЬНОЕ — ПО СИЛАМ.</small></aside>
+</section>
+<nav><a href="#rituals">01 / Ритуалы</a><a href="#home">02 / Дом</a><a href="#freelance">03 / Фриланс</a><a href="#study">04 / Учёба</a><a href="#care">05 / Забота</a></nav>
+<section class="progress" aria-label="Общий прогресс">
+  <div><div class="progress-label"><strong>Движение за день</strong><span id="progressMessage">Начинаем с одного пункта</span></div><div class="track"><div class="fill" id="fill"></div></div></div>
+  <div class="progress-count"><span id="doneCount">0</span><span> / <span id="allCount">0</span></span></div>
+</section>
+
+<div class="section-head" id="rituals"><h2>БАЗА, А НЕ МАРАФОН</h2><p>Ритуалы, которые помогают начать и закончить день, а не добавляют ещё один повод себя ругать.</p></div>
+<div class="grid">
+  <section class="card span-6"><div class="icon">☼</div><div class="card-head"><h3 class="card-title">Утренний старт</h3><span class="card-tag">SOFT START</span></div><p class="subtext">Сначала тело, потом список задач.</p><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="m1"><span>Встать, выпить воды, открыть шторы</span></label>
+  <label class="task"><input type="checkbox" data-id="m2"><span>Мягкая разминка на 5 минут</span></label>
+  <label class="task"><input type="checkbox" data-id="m3"><span>Умыться и почистить зубы</span></label>
+  <label class="task"><input type="checkbox" data-id="m4"><span>Тоник → сыворотка → крем</span></label>
+  <label class="task"><input type="checkbox" data-id="m5"><span>Позавтракать вместе с Сашей</span></label>
+  </div></section>
+  <section class="card span-6" id="care"><div class="icon">♡</div><div class="card-head"><h3 class="card-title">Еда + восстановление</h3><span class="card-tag">BODY FIRST</span></div><p class="subtext">Еда — не награда за продуктивность.</p><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="e1"><span>Поесть до терапии</span></label>
+  <label class="task"><input type="checkbox" data-id="e2"><span>Поесть после терапии</span></label>
+  <label class="task"><input type="checkbox" data-id="e3"><span>Приготовить простую еду на пару приёмов — если есть силы</span></label>
+  <label class="task"><input type="checkbox" data-id="e4"><span>Пить воду и делать короткие паузы</span></label>
+  <label class="task"><input type="checkbox" data-id="e5"><span>Вечером прогуляться перед душем и сном</span></label>
+  </div></section>
+</div>
+
+<div class="section-head" id="home"><h2>RESET THE SPACE</h2><p>Сначала включаем то, что работает само. Полы — в самом конце.</p></div>
+<div class="grid">
+  <section class="card span-7"><div class="card-head"><div><div class="icon">⌂</div><h3 class="card-title">Дом: генеральный список</h3></div><span class="card-tag">HOME RESET</span></div><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="h1"><span>Загрузить посудомойку и включить</span></label>
+  <label class="task"><input type="checkbox" data-id="h2"><span>Закинуть постельное бельё в стирку</span></label>
+  <label class="task"><input type="checkbox" data-id="h3"><span>Собрать диваны, убрать вещи с проходов</span></label>
+  <label class="task"><input type="checkbox" data-id="h4"><span>Разобрать холодильник, выбросить испорченное</span></label>
+  <label class="task"><input type="checkbox" data-id="h5"><span>Протереть полки холодильника, если нужно</span></label>
+  <label class="task"><input type="checkbox" data-id="h6"><span>Убрать кухню: столешница, плита, раковина</span></label>
+  <label class="task"><input type="checkbox" data-id="h7"><span>Протереть пыль</span></label>
+  <label class="task"><input type="checkbox" data-id="h8"><span>Помыть ванну и унитаз</span></label>
+  <label class="task"><input type="checkbox" data-id="h9"><span>Полностью обновить кошачий лоток</span></label>
+  <label class="task"><input type="checkbox" data-id="h10"><span>Пропылесосить, если нужно собрать шерсть и мусор</span></label>
+  <label class="task"><input type="checkbox" data-id="h11"><span>Помыть полы последними</span></label>
+  <label class="task"><input type="checkbox" data-id="h12"><span>Развесить постельное бельё</span></label>
+  <label class="task"><input type="checkbox" data-id="h13"><span>На следующий день постирать второй комплект</span></label>
+  </div></section>
+  <section class="card span-5 green"><div class="icon">↗</div><div class="card-head"><h3 class="card-title">Дела на автопилоте</h3><span class="card-tag">QUICK WINS</span></div><p class="subtext">Мелочи, которые лучше не держать в голове.</p><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="q1"><span>Сфотографировать счётчики</span></label>
+  <label class="task"><input type="checkbox" data-id="q2"><span>Оплатить квартиру и коммуналку</span></label>
+  <label class="task"><input type="checkbox" data-id="q3"><span>Проверить заказ ламотриджина</span></label>
+  <label class="task"><input type="checkbox" data-id="q4"><span>Написать Элине про VPN для Саши и Лизы</span></label>
+  </div><p class="tiny" style="margin-top:14px">Если пропущено несколько доз лекарства — уточнить у врача/фармацевта, как безопасно возобновить приём.</p></section>
+</div>
+
+<div class="section-head" id="freelance"><h2>BUILD YOUR OWN THING.</h2><p>Не ждём идеального сайта. Собираем рабочее портфолио и начинаем разговаривать с клиентами.</p></div>
+<div class="grid">
+  <section class="card span-6 accent"><div class="card-head"><div><div class="icon">⌘</div><h3 class="card-title">Портфолио / v.01</h3></div><span class="card-tag">SHIP IT</span></div><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="f1"><span>Собрать список готовых работ и ссылки</span></label>
+  <label class="task"><input type="checkbox" data-id="f2"><span>Выбрать 3–5 сильных примеров</span></label>
+  <label class="task"><input type="checkbox" data-id="f3"><span>Разделить: сайты / PDF / презентации / лид-магниты</span></label>
+  <label class="task"><input type="checkbox" data-id="f4"><span>Решить, что упростить во временной версии сайта</span></label>
+  <label class="task"><input type="checkbox" data-id="f5"><span>Описать каждую работу: задача → решение → польза</span></label>
+  <label class="task"><input type="checkbox" data-id="f6"><span>Проверить мобильную версию и контакт</span></label>
+  <label class="task"><input type="checkbox" data-id="f7"><span>Опубликовать рабочую версию, даже если не идеальна</span></label>
+  </div></section>
+  <section class="card span-6"><div class="card-head"><div><div class="icon">↗</div><h3 class="card-title">Первые заказы</h3></div><span class="card-tag">OUTREACH</span></div><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="o1"><span>Выбрать 2–3 услуги и стартовые цены</span></label>
+  <label class="task"><input type="checkbox" data-id="o2"><span>Подготовить шаблон сообщения клиенту</span></label>
+  <label class="task"><input type="checkbox" data-id="o3"><span>Выбрать две площадки и один канал прямого поиска</span></label>
+  <label class="task"><input type="checkbox" data-id="o4"><span>Найти 10 потенциальных клиентов</span></label>
+  <label class="task"><input type="checkbox" data-id="o5"><span>Отправить первые 3–5 персональных предложений</span></label>
+  <label class="task"><input type="checkbox" data-id="o6"><span>Записывать отклики и следующие шаги</span></label>
+  </div><p class="tiny" style="margin-top:14px">На ближайший блок достаточно выбрать работы и набросать структуру сайта. Не весь список за один день.</p></section>
+</div>
+
+<div class="section-head" id="study"><h2>STUDY MODE</h2><p>Сложное — после терапии, если остаётся ресурс. Не начинаем день с военных тем.</p></div>
+<div class="grid">
+  <section class="card span-7"><div class="card-head"><div><div class="icon">▤</div><h3 class="card-title">ОБЖ / подготовка к дифзачёту</h3></div><span class="card-tag">TEST GRIND</span></div><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="s1"><span>Решать тесты на сайте</span></label>
+  <label class="task"><input type="checkbox" data-id="s2"><span>Отмечать правильные ответы</span></label>
+  <label class="task"><input type="checkbox" data-id="s3"><span>Собирать шпаргалку с ответами</span></label>
+  <label class="task"><input type="checkbox" data-id="s4"><span>Повторить темы, где больше ошибок</span></label>
+  <label class="task"><input type="checkbox" data-id="s5"><span>Оставить часть подготовки на воскресенье</span></label>
+  </div></section>
+  <section class="card span-5"><div class="card-head"><div><div class="icon">♡</div><h3 class="card-title">Терапия</h3></div><span class="card-tag">14:30</span></div><div class="task-list">
+  <label class="task"><input type="checkbox" data-id="t1"><span>Подготовиться к встрече</span></label>
+  <label class="task"><input type="checkbox" data-id="t2"><span>Провести сессию</span></label>
+  <label class="task"><input type="checkbox" data-id="t3"><span>После сессии дать себе время на отдых</span></label>
+  <label class="task"><input type="checkbox" data-id="t4"><span>Пропедевтика — только если остались силы</span></label>
+  </div></section>
+</div>
+
+<div class="section-head" id="night"><h2>OFFLINE IS A PLAN.</h2><p>Вечер — не место для запуска ещё одного проекта. Выходим на прогулку, возвращаемся домой, закрываем день.</p></div>
+<div class="grid">
+  <section class="card full"><div class="card-head"><h3 class="card-title">Вечерний выход</h3><span class="card-tag">WIND DOWN</span></div><div class="grid">
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n1"><span>Приятная прогулка перед сном</span></label></div>
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n2"><span>Душ</span></label></div>
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n3"><span>Вечерний уход за кожей</span></label></div>
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n4"><span>Почистить зубы</span></label></div>
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n5"><span>Подготовить одежду и вещи на завтра</span></label></div>
+    <div class="span-4"><label class="task"><input type="checkbox" data-id="n6"><span>Лечь в кровать к 23:00–23:30</span></label></div>
+  </div></section>
+</div>
+<footer class="bottom-note"><div><strong>Не нужно сделать всё.</strong><br>Достаточно двигаться в своём ритме.</div><div style="display:flex;gap:8px;align-items:center"><span class="tiny">Галочки сохраняются в этом браузере</span><button class="reset" id="reset">Сбросить всё</button></div></footer>
+</div>
+<script>
+(() => {
+  const checks = Array.from(document.querySelectorAll('input[type="checkbox"][data-id]'));
+  const storageKey = 'sasha-reset-dashboard-v4';
+  let saved = {};
+  try {
+    const raw = window.localStorage.getItem(storageKey);
+    if (raw) saved = JSON.parse(raw) || {};
+  } catch (error) {
+    // The checklist still works for the current page even if storage is blocked.
+    saved = {};
+  }
+  function persist() {
+    try { window.localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (error) {}
+  }
+  function syncLabel(input) {
+    const label = input.closest('.task');
+    if (label) label.classList.toggle('done', input.checked);
+  }
+  function updateProgress() {
+    const done = checks.filter(c => c.checked).length;
+    const total = checks.length;
+    const count = document.getElementById('doneCount');
+    const all = document.getElementById('allCount');
+    const fill = document.getElementById('fill');
+    const msg = document.getElementById('progressMessage');
+    if (count) count.textContent = String(done);
+    if (all) all.textContent = String(total);
+    if (fill) fill.style.width = (total ? (done / total) * 100 : 0) + '%';
+    if (msg) msg.textContent = done === 0 ? 'Начинаем с одного пункта' : done === total ? 'Всё отмечено. Ты машина.' : done < 5 ? 'Уже есть движение' : done < Math.ceil(total * 0.5) ? 'Хороший старт. Продолжаем в своём ритме' : 'Больше половины — вот это темп';
+  }
+  checks.forEach(input => {
+    input.checked = !!saved[input.dataset.id];
+    syncLabel(input);
+    input.addEventListener('change', () => {
+      saved[input.dataset.id] = input.checked;
+      persist();
+      syncLabel(input);
+      updateProgress();
+    });
+  });
+  const reset = document.getElementById('reset');
+  if (reset) reset.addEventListener('click', () => {
+    if (window.confirm('Сбросить все галочки?')) {
+      saved = {};
+      try { window.localStorage.removeItem(storageKey); } catch (error) {}
+      checks.forEach(input => { input.checked = false; syncLabel(input); });
+      updateProgress();
+    }
+  });
+  updateProgress();
+})();
+</script>
+</body>
+</html>
